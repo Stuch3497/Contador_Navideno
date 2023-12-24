@@ -1,0 +1,119 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background-image: url('img/Dia_Nevado.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: slategray;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  text-align: center; /* Para centrar los elementos horizontalmente */
+  line-height: 1.5; /* Ajusta según sea necesario para centrar verticalmente */
+  padding: 18px;
+  border: solid 10px rgb(50, 50, 50);
+  border-radius: 35px;
+  font-family: 'Digital Numbers', sans-serif;
+  margin: 50px;
+  font-size: 50px;
+  color: rgb(255, 125, 125);
+  text-shadow: 0 0 10px red;
+  background-color: black;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 5);
+}
+
+.countdown span{
+  text-align: end; 
+  position: relative;
+  display: inline-block;
+  min-width: 80px;
+  height: 90px;
+  padding-bottom: 10px;
+}
+.countdown span::after{
+  content: '88';
+  position: absolute;
+  left: 0;
+  text-shadow: none;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.countdown #dayElement::before{
+  content: 'Dias';
+}
+.countdown #hourElement::before{
+  content: 'Horas';
+}
+.countdown #minElement::before{
+  content: 'Minutos';
+}
+.countdown #secElement::before{
+  content: 'Segundos';
+}
+.countdown span::before{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);  /* Modificación para centrar horizontalmente */
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: darkgray;
+  text-shadow: none;
+}
+/* @media query para pantallas más pequeñas */
+@media only screen and (max-width: 650px) {
+ 
+  img{
+    height: 100%;
+    width: 100%;
+    padding-left: 5px;
+  }
+  .countdown {
+    font-size: 20px; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+    min-width: 5px; /* Ajusta el ancho mínimo para pantallas más pequeñas */
+    padding: 20px;
+  }
+  .countdown span {
+    min-width: 30px;
+    height: 50px; /* Ajusta la altura para pantallas más pequeñas */
+    padding-bottom: 4px;
+  }
+  .countdown span::before{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);  /* Modificación para centrar horizontalmente */
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: darkgray;
+    text-shadow: none;
+  }
+}
+
+/* Agrega esta regla al final de tu archivo CSS */
+@keyframes zoomAlternate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom-animation {
+  animation: zoomAlternate 2s alternate infinite;
+}
